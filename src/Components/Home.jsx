@@ -2,8 +2,20 @@ import React, { Fragment } from "react";
 import { Button, Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Employees from "./Employees";
+import { Link,useNavigate } from 'react-router-dom';
 
 const Home = () => {
+
+    let history = useNavigate();
+
+    const handleDelete = (id) => {
+        var index = Employees.map(function(e){
+            return e.id;
+        }).indexOf(id);
+
+        Employees.splice(index,1);
+    }
+
     return (
         <Fragment>
             <div style={{ margin:'10ren' }}>
@@ -27,7 +39,7 @@ const Home = () => {
                                         <td>
                                             <Button onClick={ () => alert(item.id)}>EDIT</Button>
                                             &nbsp;
-                                            <Button onClick={ () => alert(item.id)}>DELETE</Button>
+                                            <Button onClick={ () => handleDelete(item.id)}>DELETE</Button>
                                         </td>
                                     </tr>
                                 )
