@@ -14,6 +14,8 @@ const Home = () => {
         }).indexOf(id);
 
         Employees.splice(index,1);
+
+        history('/');
     }
 
     return (
@@ -37,7 +39,9 @@ const Home = () => {
                                         <td>{item.name}</td>
                                         <td>{item.age}</td>
                                         <td>
+                                            <Link to={`/edit`}>
                                             <Button onClick={ () => alert(item.id)}>EDIT</Button>
+                                            </Link>
                                             &nbsp;
                                             <Button onClick={ () => handleDelete(item.id)}>DELETE</Button>
                                         </td>
@@ -49,6 +53,10 @@ const Home = () => {
                         }
                     </tbody>
                 </Table>
+                <br/><br/>
+                <Link className="d-grid gap-2" to="/create">
+                    <Button size="lg">Create</Button>
+                </Link>
             </div>
         </Fragment>
     )
