@@ -18,6 +18,11 @@ const Add = () => {
         const ids = uuid();
         let uniqueId = ids.slice(0,8);
 
+        let a = name, b = age;
+
+        Employees.push({ id:uniqueId, name:a, age:b });
+
+        history('/');
     };
 
     return (
