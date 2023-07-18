@@ -8,6 +8,12 @@ const Home = () => {
 
     let history = useNavigate();
 
+    const handleEdit = (id,name,age) => {
+        localStorage.setItem('id',id);
+        localStorage.setItem('name',name);
+        localStorage.setItem('age',age);
+    }
+
     const handleDelete = (id) => {
         var index = Employees.map(function(e){
             return e.id;
@@ -40,7 +46,7 @@ const Home = () => {
                                         <td>{item.age}</td>
                                         <td>
                                             <Link to={`/edit`}>
-                                            <Button onClick={ () => alert(item.id)}>EDIT</Button>
+                                            <Button onClick={ () => handleEdit(item.id,item.name,item.age)}>EDIT</Button>
                                             </Link>
                                             &nbsp;
                                             <Button onClick={ () => handleDelete(item.id)}>DELETE</Button>
