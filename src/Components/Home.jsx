@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import { Button, Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Employees from "./Employees";
@@ -7,17 +7,17 @@ import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   let history = useNavigate();
 
-  const [backendData,setBackendData] = useState([{}]);
+  // const [backendData,setBackendData] = useState([{}]);
 
-  useEffect(() => {
-    fetch("/api").then(
-      response => response.json()
-    ).then(
-      data => {
-        setBackendData(data)
-      }
-    )
-  });
+  // useEffect(() => {
+  //   fetch("/emp").then(
+  //     response => response.json()
+  //   ).then(
+  //     data => {
+  //       setBackendData(data)
+  //     }
+  //   )
+  // },[]);
 
   const handleEdit = (id, name, age) => {
     localStorage.setItem("id", id);
